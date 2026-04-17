@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restructuring — Financière Madeleine | IBR, Accompagnement restructuring, Sollicitation tiers</title>
+  <meta name="description" content="Financière Madeleine accompagne les entreprises en restructuration : Independent Business Review (IBR), pilotage de trésorerie, plan de retournement et communication financière avec les créanciers." />
+  <meta name="keywords" content="Restructuring, IBR, Independent Business Review, trésorerie, retournement, créanciers, procédure collective, Paris, PME, ETI" />
+  <meta property="og:title" content="Restructuring — Financière Madeleine" />
+  <meta property="og:description" content="IBR, plan de retournement, pilotage de trésorerie et communication financière : l'expertise Restructuring de Financière Madeleine." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#0E2841', 50: '#F2F5F9', 100: '#D6E1EE', 200: '#A8BDD3',
+              300: '#7A99B8', 400: '#4D769D', 500: '#2B5680', 600: '#1A3C63',
+              700: '#0E2841', 800: '#091C2E', 900: '#05111C',
+            },
+            stone: { 550: '#505050' },
+            accent: { DEFAULT: '#D6E4F5', dark: '#B9CCE6' },
+            electric: { DEFAULT: '#3F8CFF', soft: '#8CCFFF' },
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: { 'widest-plus': '0.2em' }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --navy: #0E2841;
+      --electric: #3F8CFF;
+      --electric-soft: #8CCFFF;
+      --stone: #505050;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1f2937; }
+    h1, h2, h3, .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* LOGO */
+    .logo-wrapper { display: inline-flex; align-items: center; flex-shrink: 0; }
+    .logo-wrapper img { height: 46px; width: auto; max-width: none; display: block; }
+    @media (min-width: 1024px) { .logo-wrapper img { height: 54px; } }
+    .logo-wrapper-footer { display: inline-flex; align-items: center; }
+    .logo-wrapper-footer img { height: 64px; width: auto; max-width: none; display: block; }
+
+    .kpi-number {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums lining-nums;
+    }
+
+    .photo-bw { filter: grayscale(100%) contrast(1.08) brightness(1.02); transition: filter 0.4s ease; }
+    .photo-bw-ambient { filter: grayscale(100%) brightness(1.35) contrast(0.7) blur(1.5px); transition: filter 0.4s ease; }
+
+    /* Équerres décoratives */
+    .corner-frame { position: relative; --corner-color: var(--navy); transition: --corner-color 0.35s ease; }
+    .corner-frame::before, .corner-frame::after,
+    .corner-frame > .corner-bl, .corner-frame > .corner-br {
+      content: ''; position: absolute; width: 24px; height: 24px; pointer-events: none;
+      transition: border-color 0.35s ease;
+    }
+    .corner-frame::before { top: 0; left: 0; border-top: 2px solid var(--corner-color); border-left: 2px solid var(--corner-color); }
+    .corner-frame::after  { top: 0; right: 0; border-top: 2px solid var(--corner-color); border-right: 2px solid var(--corner-color); }
+    .corner-frame > .corner-bl { bottom: 0; left: 0; border-bottom: 2px solid var(--corner-color); border-left: 2px solid var(--corner-color); }
+    .corner-frame > .corner-br { bottom: 0; right: 0; border-bottom: 2px solid var(--corner-color); border-right: 2px solid var(--corner-color); }
+
+    .divider-line { width: 80px; height: 1px; background: #0E2841; display: inline-block; }
+
+    /* BOUTONS ÉLECTRIQUES */
+    .btn-electric-fill, .btn-electric-outline, .btn-electric-outline-dark {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; font-weight: 500; letter-spacing: 0.05em;
+      font-size: 14px; text-transform: uppercase; text-align: center; line-height: 1;
+      transition: color 0.35s ease, border-color 0.35s ease 0.08s,
+                  box-shadow 0.5s ease 0.12s, letter-spacing 0.35s ease;
+    }
+    .btn-electric-fill { background: #fff; color: var(--navy); border: 1px solid transparent; }
+    .btn-electric-fill:hover { color: var(--electric); border-color: var(--electric);
+      box-shadow: inset 0 0 0 1px var(--electric), 0 0 28px rgba(63,140,255,0.35); letter-spacing: 0.08em; }
+    .btn-electric-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.85); }
+    .btn-electric-outline:hover { color: var(--electric); border-color: var(--electric);
+      box-shadow: 0 0 28px rgba(63,140,255,0.45); letter-spacing: 0.08em; }
+    .btn-electric-outline-dark { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+    .btn-electric-outline-dark:hover { color: var(--electric); border-color: var(--electric);
+      box-shadow: 0 0 24px rgba(63,140,255,0.3); letter-spacing: 0.08em; }
+
+    /* NAV */
+    .nav-link {
+      position: relative; padding: 4px 0;
+      transition: color 0.25s ease;
+      text-transform: none; letter-spacing: normal; font-weight: 500;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: var(--electric); transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: var(--electric); }
+    .nav-link.is-active { color: var(--electric); }
+    .nav-link.is-active::after { width: 100%; }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+      background: #fff; transform: translateX(100%);
+      opacity: 0; visibility: hidden;
+      transition: transform 0.35s cubic-bezier(0.2,0.7,0.3,1), opacity 0.3s ease, visibility 0s linear 0.35s;
+      overflow-y: auto; z-index: 40;
+    }
+    .mobile-menu.is-open {
+      transform: translateX(0); opacity: 1; visibility: visible;
+      transition: transform 0.35s cubic-bezier(0.2,0.7,0.3,1), opacity 0.3s ease;
+    }
+    .mobile-nav-link {
+      display: block; padding: 16px 0; font-size: 22px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--navy); border-bottom: 1px solid rgba(14,40,65,0.08);
+      transition: color 0.25s ease, padding-left 0.25s ease;
+    }
+    .mobile-nav-link:hover { color: var(--electric); padding-left: 8px; }
+    .mobile-nav-group { padding: 14px 0; border-bottom: 1px solid rgba(14,40,65,0.08); }
+    .mobile-nav-header {
+      font-size: 22px; font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--navy); margin-bottom: 4px;
+    }
+    .mobile-sub-link {
+      display: block; padding: 10px 0 10px 16px; font-size: 14px; color: var(--stone);
+      transition: color 0.25s ease, padding-left 0.25s ease;
+    }
+    .mobile-sub-link:hover, .mobile-sub-link.is-active { color: var(--electric); padding-left: 22px; }
+    .mobile-sub-link.is-active { font-weight: 500; }
+
+    /* CARDS SUB-SERVICES */
+    .subservice-card {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      background: white;
+    }
+    .subservice-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 44px -18px rgba(14, 40, 65, 0.22), 0 0 0 1px rgba(63, 140, 255, 0.12);
+      --corner-color: var(--electric);
+    }
+    .subservice-card:hover .subservice-title { color: var(--electric); }
+
+    /* TAG/BADGE */
+    .tag-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--accent, #D6E4F5);
+      color: var(--navy);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* RÉTROPLANNING timeline */
+    .timeline-step {
+      position: relative;
+      padding-left: 56px;
+      padding-bottom: 40px;
+    }
+    .timeline-step::before {
+      content: '';
+      position: absolute;
+      left: 19px; top: 12px; bottom: -12px;
+      width: 1px; background: rgba(14, 40, 65, 0.15);
+    }
+    .timeline-step:last-child::before { display: none; }
+    .timeline-step::after {
+      content: '';
+      position: absolute;
+      left: 12px; top: 4px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--electric);
+      box-shadow: 0 0 0 4px rgba(63, 140, 255, 0.15);
+    }
+  
+    /* ===== PATCH RESPONSIVE : iPhone SE et écrans très étroits ===== */
+    /* Tablette portrait → OK avec breakpoints par défaut (sm/md/lg).
+       Ici on cible spécifiquement <= 440px (iPhone SE, Android compact) et <= 360px (petits Android). */
+
+    @media (max-width: 440px) {
+      /* Header : logo légèrement réduit pour laisser de la place au hamburger + LinkedIn */
+      .logo-wrapper img { height: 40px !important; }
+      /* Hero : titre principal plus compact pour éviter un débordement horizontal */
+      section h1 { font-size: clamp(1.75rem, 9vw, 2.25rem) !important; line-height: 1.12 !important; }
+      /* Hero chips : plus serrées pour mieux tenir sur 375px */
+      .hero-chip { font-size: 10.5px; padding: 5px 11px; gap: 6px; }
+      /* Onglets page contact : padding + font réduits, garder 2 sur une ligne */
+      .tab-btn { padding: 12px 6px !important; font-size: 10.5px !important; letter-spacing: 0.04em !important; }
+      /* Breadcrumb : plus petit pour éviter wrap cassé */
+      nav[aria-label="Fil d'Ariane"] { font-size: 10px; letter-spacing: 0.12em; }
+      /* KPI number : légèrement réduit */
+      .kpi-number { font-size: 2.75rem !important; }
+      /* Équerres du hero : plus discrètes */
+      section#accueil span.border-t-2 { width: 28px; height: 28px; }
+      /* Form field labels : taille stable */
+      .form-field label { font-size: 10px; letter-spacing: 0.14em; }
+      /* Buttons électriques : padding réduit pour éviter overflow */
+      .btn-electric-fill, .btn-electric-outline, .btn-electric-outline-dark {
+        padding: 13px 22px !important;
+        font-size: 12px !important;
+        letter-spacing: 0.04em !important;
+      }
+      /* Footer : logo légèrement plus petit */
+      .logo-wrapper-footer img { height: 54px; }
+      /* Section padding horizontal réduit sur mobile très étroit */
+      section .max-w-7xl.px-6, section .max-w-6xl.px-6, section .max-w-5xl.px-6, section .max-w-4xl.px-6 {
+        padding-left: 1rem; padding-right: 1rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      /* Très petits écrans : on tasse davantage */
+      .logo-wrapper img { height: 36px !important; }
+      section h1 { font-size: 1.6rem !important; }
+      .tab-btn { padding: 10px 4px !important; font-size: 9.5px !important; }
+      .hero-chip { font-size: 9.5px; padding: 4px 9px; }
+      .kpi-number { font-size: 2.4rem !important; }
+      .btn-electric-fill, .btn-electric-outline, .btn-electric-outline-dark {
+        padding: 12px 18px !important;
+        font-size: 11px !important;
+      }
+    }
+
+    /* Anti-débordement horizontal global : aucune section ne doit créer de scroll horizontal */
+    html, body { overflow-x: hidden; }
+  </style>
+</head>
+
+<body class="bg-white">
+
+  <!-- ============ HEADER (identique à la landing) ============ -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-3 lg:py-3.5 flex items-center justify-between gap-6">
+      <a href="./index.html" class="logo-wrapper" aria-label="Financière Madeleine — Accueil">
+        <img src="./assets/logo_crop.svg" alt="Financière Madeleine" />
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-10 text-sm text-navy-700">
+        <a href="./index.html#accueil" class="nav-link">Accueil</a>
+        <div class="relative group">
+          <a href="./index.html#expertises" class="nav-link is-active flex items-center gap-1.5">
+            Expertises
+            <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-white border border-gray-100 shadow-xl w-64 py-2">
+              <a href="./expertise-ma-ts.html" class="block px-5 py-3 text-sm text-navy-700 hover:bg-navy-50 hover:text-electric transition-colors">M&amp;A Transaction Services</a>
+              <a href="./expertise-restructuring.html" class="block px-5 py-3 text-sm text-electric bg-navy-50 font-medium">Restructuring</a>
+              <a href="./expertise-accompagnement.html" class="block px-5 py-3 text-sm text-navy-700 hover:bg-navy-50 hover:text-electric transition-colors">Accompagnement financier</a>
+              <a href="./expertise-valorisation.html" class="block px-5 py-3 text-sm text-navy-700 hover:bg-navy-50 hover:text-electric transition-colors">Valorisation &amp; stratégie</a>
+            </div>
+          </div>
+        </div>
+        <a href="./index.html#a-propos" class="nav-link">Approche</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-4 sm:gap-5">
+        <a href="https://www.linkedin.com/company/financi%C3%A8re-madeleine/" target="_blank" rel="noopener" aria-label="LinkedIn Financière Madeleine" class="text-navy-700 hover:text-electric transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="./contact.html" class="hidden lg:inline-flex items-center justify-center bg-navy-700 text-white hover:bg-electric transition-colors px-5 py-2.5 text-[11px] uppercase tracking-wider font-medium">Prendre rendez-vous</a>
+
+        <button type="button" id="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+          class="lg:hidden inline-flex items-center justify-center w-10 h-10 text-navy-700 hover:text-electric transition-colors"
+          onclick="
+            const menu = document.getElementById('mobile-menu');
+            const hidden = menu.classList.toggle('is-open');
+            this.setAttribute('aria-expanded', hidden ? 'true' : 'false');
+            document.body.classList.toggle('overflow-hidden', hidden);
+          ">
+          <svg class="w-6 h-6 icon-burger" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="w-6 h-6 icon-close hidden" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu lg:hidden">
+      <nav class="px-6 pt-8 pb-10 flex flex-col gap-1 text-navy-700">
+        <a href="./index.html#accueil" class="mobile-nav-link" onclick="closeMobileMenu()">Accueil</a>
+        <div class="mobile-nav-group">
+          <p class="mobile-nav-header">Expertises</p>
+          <a href="./expertise-ma-ts.html" class="mobile-sub-link">M&amp;A Transaction Services</a>
+          <a href="./expertise-restructuring.html" class="mobile-sub-link is-active">Restructuring</a>
+          <a href="./expertise-accompagnement.html" class="mobile-sub-link">Accompagnement financier</a>
+          <a href="./expertise-valorisation.html" class="mobile-sub-link">Valorisation &amp; stratégie</a>
+        </div>
+        <a href="./index.html#a-propos" class="mobile-nav-link" onclick="closeMobileMenu()">Approche</a>
+        <a href="./contact.html" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a>
+        <a href="./contact.html" class="mt-6 bg-navy-700 text-white text-center py-4 text-sm uppercase tracking-wider font-medium hover:bg-electric transition-colors" onclick="closeMobileMenu()">Prendre rendez-vous</a>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const toggle = document.getElementById('mobile-menu-toggle');
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('overflow-hidden');
+    }
+    const mm = document.getElementById('mobile-menu');
+    const mt = document.getElementById('mobile-menu-toggle');
+    const obs = new MutationObserver(() => {
+      const open = mm.classList.contains('is-open');
+      mt.querySelector('.icon-burger').classList.toggle('hidden', open);
+      mt.querySelector('.icon-close').classList.toggle('hidden', !open);
+    });
+    obs.observe(mm, { attributes: true, attributeFilter: ['class'] });
+  </script>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="relative bg-navy-800 text-white pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
+    <!-- Ornements : dégradé radial + équerres -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at 80% 30%, rgba(63,140,255,0.12) 0%, transparent 55%);"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at 20% 80%, rgba(140,207,255,0.06) 0%, transparent 50%);"></div>
+      <span class="hidden sm:block absolute top-28 left-8 lg:top-40 lg:left-12 w-10 h-10 border-t border-l border-electric-soft/30"></span>
+      <span class="hidden sm:block absolute bottom-16 right-8 lg:bottom-20 lg:right-12 w-10 h-10 border-b border-r border-electric-soft/30"></span>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+      <!-- Breadcrumb -->
+      <nav class="text-xs uppercase tracking-widest-plus text-accent/70 mb-8 flex items-center gap-2" aria-label="Fil d'Ariane">
+        <a href="./index.html" class="hidden sm:inline hover:text-electric transition-colors">Accueil</a>
+        <span class="hidden sm:inline text-accent/40">/</span>
+        <a href="./index.html#expertises" class="hover:text-electric transition-colors">Expertises</a>
+        <span class="text-accent/40">/</span>
+        <span class="text-white">Restructuring</span>
+      </nav>
+
+      <div class="grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-end">
+        <div>
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.05] mb-8">
+            Restructuring<br/>
+            <span class="italic font-normal text-accent">&amp; retournement.</span>
+          </h1>
+          <p class="text-base lg:text-lg text-white/85 leading-relaxed max-w-2xl text-justify">
+            Rétablir la confiance dans les chiffres, anticiper les risques de liquidité et accélérer
+            les décisions avec les créanciers. Un accompagnement objectif et structuré pour asseoir
+            la crédibilité du management face à l'ensemble des parties prenantes.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag-badge">Management</span>
+          <span class="tag-badge">Créanciers</span>
+          <span class="tag-badge">Investisseurs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROPOSITION DE VALEUR ============ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div>
+          <p class="text-xs uppercase tracking-widest-plus text-stone-550 mb-6 flex items-center gap-4">
+            <span class="divider-line"></span>
+            La proposition de valeur
+          </p>
+          <h2 class="font-serif text-3xl lg:text-5xl text-navy-700 leading-tight mb-8">
+            Un diagnostic <span class="italic">indépendant</span><br/>
+            pour décider sereinement.
+          </h2>
+          <p class="text-stone-550 leading-relaxed text-justify">
+            Chaque mission informe toutes les parties prenantes pour anticiper les risques, rétablir
+            la confiance dans les chiffres et faciliter les décisions avec les créanciers. L'objectif :
+            présenter un plan de poursuite d'activité pour asseoir la crédibilité du management.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <div class="corner-frame p-8 bg-white border border-gray-100">
+            <span class="corner-bl"></span><span class="corner-br"></span>
+            <h3 class="font-serif text-xl text-navy-700 mb-4 flex items-center gap-3">
+              <span class="w-8 h-px bg-electric"></span>
+              Informer les parties prenantes
+            </h3>
+            <ul class="space-y-2.5 text-sm text-stone-550 leading-relaxed">
+              <li class="flex gap-3">
+                <svg class="w-4 h-4 text-electric shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Anticiper et quantifier les risques de liquidité et de continuité d'exploitation
+              </li>
+              <li class="flex gap-3">
+                <svg class="w-4 h-4 text-electric shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Rétablir la confiance dans les chiffres
+              </li>
+              <li class="flex gap-3">
+                <svg class="w-4 h-4 text-electric shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Accélérer et faciliter les décisions avec les créanciers
+              </li>
+            </ul>
+          </div>
+          <div class="corner-frame p-8 bg-white border border-gray-100">
+            <span class="corner-bl"></span><span class="corner-br"></span>
+            <h3 class="font-serif text-xl text-navy-700 mb-4 flex items-center gap-3">
+              <span class="w-8 h-px bg-electric"></span>
+              Asseoir la crédibilité du management
+            </h3>
+            <ul class="space-y-2.5 text-sm text-stone-550 leading-relaxed">
+              <li class="flex gap-3">
+                <svg class="w-4 h-4 text-electric shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Par la présentation d'un plan de poursuite d'activité structuré et documenté
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOUS-SERVICES DÉTAILLÉS ============ -->
+  <section class="py-20 lg:py-28 bg-navy-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 lg:mb-20">
+        <p class="text-xs uppercase tracking-widest-plus text-stone-550 mb-6 flex items-center gap-4 justify-center">
+          <span class="divider-line"></span>
+          L'offre détaillée
+          <span class="divider-line"></span>
+        </p>
+        <h2 class="font-serif text-3xl lg:text-5xl text-navy-700 leading-tight max-w-3xl mx-auto">
+          Trois formats d'intervention, adaptés à chaque contexte.
+        </h2>
+      </div>
+
+      <div class="space-y-8">
+        <!-- IBR -->
+        <div class="subservice-card corner-frame p-8 lg:p-12 border border-gray-100 grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+          <span class="corner-bl"></span><span class="corner-br"></span>
+          <div>
+            <span class="tag-badge mb-5">Créanciers · Management</span>
+            <h3 class="subservice-title font-serif text-2xl lg:text-3xl text-navy-700 leading-tight mb-4">
+              Independent<br/>Business Review
+            </h3>
+            <p class="text-sm text-stone-550 leading-relaxed">
+              Diagnostic indépendant de la performance et de la robustesse du plan.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm text-stone-550">
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 15l3-3 4 4 5-6"/></svg>
+              <span>Analyse critique de la <strong class="text-navy-700 font-medium">performance historique</strong> et étude de la génération de trésorerie</span>
+            </div>
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              <span><strong class="text-navy-700 font-medium">Cartographie de l'endettement</strong> et analyse de la capacité de désendettement</span>
+            </div>
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              <span><strong class="text-navy-700 font-medium">Revue indépendante du business plan</strong> avec revue des hypothèses et réalisation de cas dégradés (marges, investissements…)</span>
+            </div>
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3 3 4-6"/></svg>
+              <span>Production d'un <strong class="text-navy-700 font-medium">rapport structuré, objectif et documenté</strong> à destination des parties prenantes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCOMPAGNEMENT RESTRUCTURING -->
+        <div class="subservice-card corner-frame p-8 lg:p-12 border border-gray-100 grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+          <span class="corner-bl"></span><span class="corner-br"></span>
+          <div>
+            <span class="tag-badge mb-5">Trésorerie · Plan de retournement</span>
+            <h3 class="subservice-title font-serif text-2xl lg:text-3xl text-navy-700 leading-tight mb-4">
+              Accompagnement<br/>restructuring
+            </h3>
+            <p class="text-sm text-stone-550 leading-relaxed">
+              Pilotage opérationnel et négociation avec les parties prenantes.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm text-stone-550">
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m-4-4h8M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/></svg>
+              <span><strong class="text-navy-700 font-medium">Modélisation de la trésorerie à court terme</strong> et suivi de l'évolution de la situation</span>
+            </div>
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+              <span>Aide et assistance à la <strong class="text-navy-700 font-medium">négociation avec des tiers</strong> par la production de documents supports</span>
+            </div>
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+              <span>Définition et structuration d'un <strong class="text-navy-700 font-medium">plan de retournement opérationnel et financier</strong> par la proposition de scénarios</span>
+            </div>
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+              <span>Analyse et préparation des <strong class="text-navy-700 font-medium">voies amiables et juridiques</strong> envisageables</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOLLICITATION PAR DES TIERS -->
+        <div class="subservice-card corner-frame p-8 lg:p-12 border border-gray-100 grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+          <span class="corner-bl"></span><span class="corner-br"></span>
+          <div>
+            <span class="tag-badge mb-5">Communication financière</span>
+            <h3 class="subservice-title font-serif text-2xl lg:text-3xl text-navy-700 leading-tight mb-4">
+              Sollicitation par des tiers
+            </h3>
+            <p class="text-sm text-stone-550 leading-relaxed">
+              Réponse structurée aux demandes externes d'information financière.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5 text-sm text-stone-550">
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/></svg>
+              <span>Accompagnement à la <strong class="text-navy-700 font-medium">détermination du besoin</strong> en communication financière</span>
+            </div>
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-electric shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l-2 2M15 5v13l2-2"/></svg>
+              <span>Réalisation des <strong class="text-navy-700 font-medium">travaux et supports</strong> destinés aux communications financières</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Définition clé -->
+      <div class="mt-12 p-6 lg:p-8 border-l-2 border-electric bg-white">
+        <p class="text-xs uppercase tracking-widest text-electric mb-2">Définition clé</p>
+        <p class="text-sm text-stone-550 leading-relaxed">
+          <strong class="text-navy-700 font-medium">IBR (Independent Business Review) :</strong>
+          examen indépendant de la performance de l'entreprise servant de base de discussions pour
+          l'ensemble des créanciers concernés par la procédure de restructuration. Cette étude porte
+          une attention particulière sur les besoins de trésorerie à court/moyen terme et sur la
+          robustesse du ou des plan(s) de reprise.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESSUS TYPE ============ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 lg:mb-20">
+        <p class="text-xs uppercase tracking-widest-plus text-stone-550 mb-6 flex items-center gap-4 justify-center">
+          <span class="divider-line"></span>
+          Processus type
+          <span class="divider-line"></span>
+        </p>
+        <h2 class="font-serif text-3xl lg:text-5xl text-navy-700 leading-tight max-w-3xl mx-auto mb-6">
+          Exemple de déroulé d'une mission IBR.
+        </h2>
+        <p class="text-sm text-stone-550 max-w-2xl mx-auto leading-relaxed">
+          Chaque mission est sur-mesure ; voici un exemple de phases couvrant le diagnostic, la revue
+          du business plan, la modélisation financière et la restitution aux parties prenantes.
+        </p>
+      </div>
+
+      <div class="space-y-0">
+        <div class="timeline-step">
+          <div class="flex items-start gap-3 mb-2">
+            <span class="inline-block px-2.5 py-0.5 text-[10px] uppercase tracking-widest bg-electric text-white font-medium">Phase 1</span>
+            <span class="text-xs text-stone-550 uppercase tracking-widest">Diagnostic</span>
+          </div>
+          <h3 class="font-serif text-xl lg:text-2xl text-navy-700 mb-2">État des lieux et collecte</h3>
+          <p class="text-sm text-stone-550 leading-relaxed text-justify">
+            Compréhension du contexte, collecte des données historiques, cartographie de la situation
+            financière et des parties prenantes (créanciers bancaires, fournisseurs, actionnaires).
+          </p>
+        </div>
+        <div class="timeline-step">
+          <div class="flex items-start gap-3 mb-2">
+            <span class="inline-block px-2.5 py-0.5 text-[10px] uppercase tracking-widest bg-navy-700 text-white font-medium">Phase 2</span>
+            <span class="text-xs text-stone-550 uppercase tracking-widest">Analyse</span>
+          </div>
+          <h3 class="font-serif text-xl lg:text-2xl text-navy-700 mb-2">Revue indépendante du business plan</h3>
+          <p class="text-sm text-stone-550 leading-relaxed text-justify">
+            Revue critique des hypothèses, réalisation de cas dégradés, analyse de la robustesse du
+            plan de retournement et de la capacité de désendettement sur la durée du plan.
+          </p>
+        </div>
+        <div class="timeline-step">
+          <div class="flex items-start gap-3 mb-2">
+            <span class="inline-block px-2.5 py-0.5 text-[10px] uppercase tracking-widest bg-navy-700 text-white font-medium">Phase 3</span>
+            <span class="text-xs text-stone-550 uppercase tracking-widest">Modélisation</span>
+          </div>
+          <h3 class="font-serif text-xl lg:text-2xl text-navy-700 mb-2">Modélisation de la trésorerie</h3>
+          <p class="text-sm text-stone-550 leading-relaxed text-justify">
+            Construction d'un modèle de trésorerie à court et moyen terme, identification des zones
+            de tension et des besoins de financement, quantification des scénarios.
+          </p>
+        </div>
+        <div class="timeline-step">
+          <div class="flex items-start gap-3 mb-2">
+            <span class="inline-block px-2.5 py-0.5 text-[10px] uppercase tracking-widest bg-navy-700 text-white font-medium">Phase 4</span>
+            <span class="text-xs text-stone-550 uppercase tracking-widest">Restitution</span>
+          </div>
+          <h3 class="font-serif text-xl lg:text-2xl text-navy-700 mb-2">Rapport et présentation aux parties prenantes</h3>
+          <p class="text-sm text-stone-550 leading-relaxed text-justify">
+            Production d'un rapport structuré, objectif et documenté. Présentation et accompagnement
+            aux discussions avec les créanciers, investisseurs et le management.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERTISES COMPLÉMENTAIRES ============ -->
+  <section class="py-20 lg:py-24 bg-navy-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-12">
+        <p class="text-xs uppercase tracking-widest-plus text-stone-550 mb-4 flex items-center gap-4 justify-center">
+          <span class="divider-line"></span>
+          Expertises complémentaires
+          <span class="divider-line"></span>
+        </p>
+        <h2 class="font-serif text-2xl lg:text-4xl text-navy-700 leading-tight max-w-3xl mx-auto">
+          Une offre globale, du conseil à l'opérationnel.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="./expertise-ma-ts.html" class="subservice-card corner-frame p-8 border border-gray-100 bg-white group">
+          <span class="corner-bl"></span><span class="corner-br"></span>
+          <h3 class="subservice-title font-serif text-xl text-navy-700 mb-3">M&amp;A Transaction Services</h3>
+          <p class="text-sm text-stone-550 leading-relaxed mb-5">
+            Vendor Due Diligence, revue de VDD, missions ad hoc pour sécuriser vos transactions.
+          </p>
+          <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-navy-700 border-b border-navy-700 pb-0.5 group-hover:text-electric group-hover:border-electric transition-colors">
+            Découvrir →
+          </span>
+        </a>
+        <a href="./expertise-accompagnement.html" class="subservice-card corner-frame p-8 border border-gray-100 bg-white group">
+          <span class="corner-bl"></span><span class="corner-br"></span>
+          <h3 class="subservice-title font-serif text-xl text-navy-700 mb-3">Accompagnement financier</h3>
+          <p class="text-sm text-stone-550 leading-relaxed mb-5">
+            Reporting, budget &amp; business plan, cash management. DAF externalisé sur-mesure.
+          </p>
+          <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-navy-700 border-b border-navy-700 pb-0.5 group-hover:text-electric group-hover:border-electric transition-colors">
+            Découvrir →
+          </span>
+        </a>
+        <a href="./expertise-valorisation.html" class="subservice-card corner-frame p-8 border border-gray-100 bg-white group">
+          <span class="corner-bl"></span><span class="corner-br"></span>
+          <h3 class="subservice-title font-serif text-xl text-navy-700 mb-3">Valorisation &amp; stratégie</h3>
+          <p class="text-sm text-stone-550 leading-relaxed mb-5">
+            Modélisation financière, sélection des méthodes (DCF, comparables), recherche de cibles.
+          </p>
+          <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-medium text-navy-700 border-b border-navy-700 pb-0.5 group-hover:text-electric group-hover:border-electric transition-colors">
+            Découvrir →
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA CONTACT ============ -->
+  <section class="py-24 lg:py-32 bg-navy-700 text-white relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 0%, rgba(63,140,255,0.14) 0%, transparent 55%);"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 100%, rgba(140,207,255,0.08) 0%, transparent 60%);"></div>
+      <span class="hidden sm:block absolute top-12 left-8 lg:top-16 lg:left-16 w-10 h-10 border-t border-l border-electric-soft/40"></span>
+      <span class="hidden sm:block absolute top-12 right-8 lg:top-16 lg:right-16 w-10 h-10 border-t border-r border-electric-soft/40"></span>
+      <span class="hidden sm:block absolute bottom-12 left-8 lg:bottom-16 lg:left-16 w-10 h-10 border-b border-l border-electric-soft/40"></span>
+      <span class="hidden sm:block absolute bottom-12 right-8 lg:bottom-16 lg:right-16 w-10 h-10 border-b border-r border-electric-soft/40"></span>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-20 text-center relative z-10">
+      <p class="text-xs uppercase tracking-widest-plus text-accent mb-6 flex items-center gap-4 justify-center">
+        <span class="divider-line bg-accent"></span>
+        Une situation à éclaircir ?
+        <span class="divider-line bg-accent"></span>
+      </p>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-6xl leading-tight mb-8 max-w-4xl mx-auto">
+        Parlons de votre situation — <span class="italic">en toute confidentialité.</span>
+      </h2>
+      <p class="text-accent text-base lg:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+        Un premier échange de 20 minutes, non-engageant et gratuit, pour comprendre votre projet
+        et définir ensemble les analyses nécessaires à sa réussite.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="./contact.html" class="btn-electric-fill">Demander un rendez-vous</a>
+        <a href="mailto:g.leclerc@financieremadeleine.com" class="btn-electric-outline">Envoyer un message</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-navy-800 text-white/80 py-14 lg:py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10 lg:gap-14 items-start">
+      <div>
+        <div class="max-w-md mx-auto md:mx-0">
+          <div class="flex justify-center mb-6">
+            <img src="./assets/logo_blanc_crop.svg" alt="Financière Madeleine — Conseil financier indépendant" class="h-16 w-auto block" style="max-width: none;" />
+          </div>
+          <p class="text-sm leading-relaxed text-white/70 text-justify">
+            Cabinet de conseil financier indépendant à Paris. Accompagnement des entrepreneurs
+            et investisseurs sur leurs opérations stratégiques : <strong class="text-white/90 font-normal">cession, acquisition,
+            levée de fonds, restructuration</strong> et direction financière externalisée pour PME et ETI
+            de 1 à 50 M€ de chiffre d'affaires.
+          </p>
+        </div>
+      </div>
+      <div class="text-sm text-center md:text-left">
+        <p class="uppercase tracking-widest text-xs text-white/50 mb-5">Navigation</p>
+        <ul class="space-y-2.5">
+          <li><a href="./index.html#accueil" class="hover:text-electric transition-colors">Accueil</a></li>
+          <li><a href="./index.html#expertises" class="hover:text-electric transition-colors">Expertises</a></li>
+          <li><a href="./index.html#a-propos" class="hover:text-electric transition-colors">Approche</a></li>
+          <li><a href="./contact.html" class="hover:text-electric transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div class="text-sm text-center md:text-left">
+        <p class="uppercase tracking-widest text-xs text-white/50 mb-5">Contact</p>
+        <ul class="space-y-2.5">
+          <li><a href="tel:+33752626092" class="hover:text-electric transition-colors">07 52 62 60 92</a></li>
+          <li><a href="mailto:g.leclerc@financieremadeleine.com" class="hover:text-electric transition-colors break-all">g.leclerc@financieremadeleine.com</a></li>
+          <li class="flex justify-center md:justify-start">
+            <a href="https://www.linkedin.com/company/financi%C3%A8re-madeleine/" target="_blank" rel="noopener" class="hover:text-electric transition-colors inline-flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-white/50 gap-4">
+      <p>© 2026 Financière Madeleine. Tous droits réservés.</p>
+      <div class="flex gap-6">
+        <a href="./mentions-legales.html" class="hover:text-electric transition-colors">Mentions légales</a>
+        <a href="./mentions-legales.html#confidentialite" class="hover:text-electric transition-colors">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
