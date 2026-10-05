@@ -295,6 +295,8 @@
       </div>
     </div>
 
+  </header>
+  <!-- Menu mobile placé hors du <header> : le flou (backdrop-filter) du header empêchait son affichage sur mobile -->
     <div id="mobile-menu" class="mobile-menu lg:hidden">
       <nav class="px-6 pt-8 pb-10 flex flex-col gap-1 text-navy-700">
         <a href="./index.html#accueil" class="mobile-nav-link" onclick="closeMobileMenu()">Accueil</a>
@@ -310,7 +312,14 @@
         <a href="./contact.html" class="mt-6 bg-navy-700 text-white text-center py-4 text-sm uppercase tracking-wider font-medium hover:bg-electric transition-colors" onclick="closeMobileMenu()">Prendre rendez-vous</a>
       </nav>
     </div>
-  </header>
+  <script data-menu-fix>
+    (function () {
+      var h = document.querySelector('header'), m = document.getElementById('mobile-menu');
+      function place() { if (h && m) m.style.top = h.offsetHeight + 'px'; }
+      place(); window.addEventListener('resize', place);
+      document.getElementById('mobile-menu-toggle').addEventListener('click', place);
+    })();
+  </script>
 
   <script>
     function closeMobileMenu() {
@@ -684,7 +693,7 @@
         Parlons de votre situation — <span class="italic">en toute confidentialité.</span>
       </h2>
       <p class="text-accent text-base lg:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-        Un premier échange de 20 minutes, non-engageant et gratuit, pour comprendre votre projet
+        Un premier échange non-engageant et gratuit pour comprendre votre projet
         et définir ensemble les analyses nécessaires à sa réussite.
       </p>
       <div class="flex flex-wrap justify-center gap-4">

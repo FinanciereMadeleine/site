@@ -478,6 +478,8 @@
       </div>
     </div>
 
+  </header>
+  <!-- Menu mobile placé hors du <header> : le flou (backdrop-filter) du header empêchait son affichage sur mobile -->
     <!-- Menu mobile (overlay plein écran) -->
     <div
       id="mobile-menu"
@@ -498,7 +500,14 @@
         <a href="./contact.html#demande-rdv" class="mt-6 bg-navy-700 text-white text-center py-4 text-sm uppercase tracking-wider font-medium hover:bg-electric transition-colors" onclick="closeMobileMenu()">Prendre rendez-vous</a>
       </nav>
     </div>
-  </header>
+  <script data-menu-fix>
+    (function () {
+      var h = document.querySelector('header'), m = document.getElementById('mobile-menu');
+      function place() { if (h && m) m.style.top = h.offsetHeight + 'px'; }
+      place(); window.addEventListener('resize', place);
+      document.getElementById('mobile-menu-toggle').addEventListener('click', place);
+    })();
+  </script>
 
   <script>
     function closeMobileMenu() {
@@ -541,16 +550,16 @@
 
     <!-- Contenu texte en overlay -->
     <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full pt-28 pb-24 lg:pt-32 lg:pb-20">
-      <div class="max-w-3xl">
+      <div class="max-w-4xl">
         <p class="reveal-text-1 text-[10px] sm:text-xs uppercase tracking-widest-plus text-accent mb-6 lg:mb-8 flex items-center gap-4">
           <span class="divider-line !bg-accent !w-12 sm:!w-20"></span>
           Conseil financier sur-mesure
         </p>
 
-        <h1 class="reveal-text-1 font-serif text-[2.25rem] leading-[1.1] sm:text-5xl sm:leading-[1.05] lg:text-6xl xl:text-7xl text-white mb-6 lg:mb-8">
-          La rigueur du conseil,<br/>
-          <span class="italic font-normal text-accent">au plus près de la</span><br/>
-          réalité opérationnelle.
+        <h1 class="reveal-text-1 font-serif text-[2.25rem] leading-[1.1] sm:text-5xl sm:leading-[1.05] lg:text-6xl text-white mb-6 lg:mb-8">
+          La rigueur du <span class="text-electric-soft">conseil financier</span>,<br class="hidden md:inline"/>
+          au plus près de la réalité<br class="hidden md:inline"/>
+          opérationnelle des <span class="text-electric-soft">entrepreneurs</span>.
         </h1>
 
         <p class="reveal-text-2 text-sm sm:text-base lg:text-lg text-white/90 leading-relaxed mb-8 lg:mb-10 max-w-2xl lg:text-justify">
@@ -865,7 +874,7 @@
         Rencontrons-nous pour identifier ensemble <span class="italic">vos besoins.</span>
       </h2>
       <p class="text-accent text-base lg:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-        Un premier échange de 20 minutes, non-engageant et gratuit, pour comprendre
+        Un premier échange non-engageant et gratuit pour comprendre
         votre projet et les analyses nécessaires à sa réussite.
       </p>
       <div class="flex flex-wrap justify-center gap-4">

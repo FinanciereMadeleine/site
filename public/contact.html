@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Financière Madeleine | Prendre rendez-vous, télécharger la plaquette</title>
-  <meta name="description" content="Contactez Financière Madeleine pour un premier échange de 20 minutes, non-engageant et gratuit. Formulaire de demande de rendez-vous, coordonnées directes et téléchargement de la plaquette commerciale." />
+  <meta name="description" content="Contactez Financière Madeleine pour un premier échange non-engageant et gratuit. Formulaire de demande de rendez-vous, coordonnées directes et téléchargement de la plaquette commerciale." />
   <meta name="keywords" content="contact, Financière Madeleine, rendez-vous, conseil financier, Paris, M&A, DAF externalisé" />
   <meta property="og:title" content="Contact — Financière Madeleine" />
-  <meta property="og:description" content="Un premier échange de 20 minutes, non-engageant et gratuit, pour identifier ensemble vos besoins." />
+  <meta property="og:description" content="Un premier échange non-engageant et gratuit pour identifier ensemble vos besoins." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
 
@@ -128,6 +128,17 @@
     }
     .tab-btn.is-active { color: var(--navy); border-bottom-color: var(--electric); }
     .tab-btn:hover:not(.is-active) { color: var(--navy); }
+    /* Étapes numérotées de la section contact */
+    .step-number {
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 300; font-size: 13px;
+      letter-spacing: 0.15em; color: var(--electric);
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border: 1px solid var(--navy); flex-shrink: 0;
+    }
+    .step-number-light { color: var(--electric-soft); border-color: rgba(255,255,255,0.5); }
+    /* Agenda Calendly intégré */
+    .calendly-inline-widget { min-width: 280px; height: 1000px; width: 100%; }
+    @media (min-width: 1024px) { .calendly-inline-widget { height: 720px; } }
     .tab-panel { display: none; }
     .tab-panel.is-active { display: block; }
   
@@ -233,6 +244,8 @@
       </div>
     </div>
 
+  </header>
+  <!-- Menu mobile placé hors du <header> : le flou (backdrop-filter) du header empêchait son affichage sur mobile -->
     <div id="mobile-menu" class="mobile-menu lg:hidden">
       <nav class="px-6 pt-8 pb-10 flex flex-col gap-1 text-navy-700">
         <a href="./index.html#accueil" class="mobile-nav-link" onclick="closeMobileMenu()">Accueil</a>
@@ -248,7 +261,14 @@
         <a href="#demande-rdv" class="mt-6 bg-navy-700 text-white text-center py-4 text-sm uppercase tracking-wider font-medium hover:bg-electric transition-colors" onclick="closeMobileMenu()">Prendre rendez-vous</a>
       </nav>
     </div>
-  </header>
+  <script data-menu-fix>
+    (function () {
+      var h = document.querySelector('header'), m = document.getElementById('mobile-menu');
+      function place() { if (h && m) m.style.top = h.offsetHeight + 'px'; }
+      place(); window.addEventListener('resize', place);
+      document.getElementById('mobile-menu-toggle').addEventListener('click', place);
+    })();
+  </script>
 
   <script>
     function closeMobileMenu() {
@@ -293,7 +313,7 @@
         Parlons de <span class="italic font-normal text-accent">votre projet.</span>
       </h1>
       <p class="text-base lg:text-lg text-white/85 leading-relaxed max-w-[620px] lg:max-w-[720px] mx-auto text-justify sm:text-center">
-        Un premier échange de 20 minutes, non-engageant et gratuit, pour identifier vos besoins et définir ensemble les analyses nécessaires à la réussite de votre projet.
+        Un premier échange non-engageant et gratuit pour identifier vos besoins et définir ensemble les analyses nécessaires à la réussite de votre projet.
       </p>
     </div>
   </section>
@@ -341,162 +361,94 @@
     </div>
   </section>
 
-  <!-- FORMULAIRES AVEC ONGLETS -->
-  <section id="demande-rdv" class="py-20 lg:py-28 bg-navy-50">
-    <div class="max-w-4xl mx-auto px-6 lg:px-12">
-      <div class="text-center mb-12">
+  <!-- PRENDRE RENDEZ-VOUS : 1) Calendly  2) Formulaire  3) Email direct -->
+  <section id="demande-rdv" class="py-20 lg:py-28 bg-navy-50 scroll-mt-20">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-12 lg:mb-14">
         <p class="text-xs uppercase tracking-widest-plus text-stone-550 mb-6 flex items-center gap-4 justify-center">
           <span class="divider-line"></span>
           Comment souhaitez-vous nous contacter ?
           <span class="divider-line"></span>
         </p>
+        <h2 class="font-serif text-3xl lg:text-4xl text-navy-700 leading-tight">
+          Trois façons simples <span class="italic">d'échanger.</span>
+        </h2>
       </div>
 
-      <!-- Onglets -->
-      <div class="flex border-b border-gray-200 mb-0">
-        <button class="tab-btn is-active flex-1" data-tab="rdv" onclick="switchTab('rdv')"><span class="sm:hidden">Rendez-vous</span><span class="hidden sm:inline">Demander un rendez-vous</span></button>
-        <button class="tab-btn flex-1" data-tab="message" onclick="switchTab('message')"><span class="sm:hidden">Message</span><span class="hidden sm:inline">Envoyer un message</span></button>
-      </div>
-
-      <!-- Panel RDV -->
-      <div id="tab-rdv" class="tab-panel is-active bg-white p-8 lg:p-12 border border-gray-200 border-t-0">
-        <p class="text-sm text-stone-550 leading-relaxed mb-8 text-justify">
-          Proposez <strong class="text-navy-700 font-medium">2 plages de disponibilité</strong> (fourchette de 2 à 3 heures chacune) pour
-          un premier échange de <strong class="text-navy-700 font-medium">20 minutes</strong>. Grégoire vous confirmera rapidement le créneau le plus adapté.
+      <!-- 01 — CALENDLY -->
+      <div id="agenda" class="contact-card corner-frame bg-white border border-gray-200 p-6 sm:p-8 lg:p-10 mb-8 scroll-mt-24">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6">
+          <span class="step-number">01</span>
+          <div class="flex-1">
+            <div class="flex flex-wrap items-center gap-3 mb-2">
+              <h3 class="font-serif text-2xl lg:text-3xl text-navy-700 leading-tight">Réserver un rendez-vous en ligne</h3>
+              <span class="text-[10px] uppercase tracking-widest font-medium text-electric border border-electric/40 px-2.5 py-1">Le plus rapide</span>
+            </div>
+            <p class="text-sm text-stone-550 leading-relaxed">
+              Choisissez directement le créneau qui vous convient dans l'agenda de Grégoire.
+              La confirmation et le lien de visioconférence vous sont envoyés immédiatement par email.
+            </p>
+          </div>
+        </div>
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/g-leclerc-financieremadeleine/30min?hide_event_type_details=1&amp;primary_color=3f8cff&amp;text_color=0e2841"
+             data-resize="true"></div>
+        <p class="mt-4 text-xs text-stone-550 text-center">
+          L'agenda ne s'affiche pas&nbsp;?
+          <a href="https://calendly.com/g-leclerc-financieremadeleine/30min" target="_blank" rel="noopener" class="underline hover:text-electric">Ouvrir l'agenda dans un nouvel onglet</a>
         </p>
-        <form onsubmit="event.preventDefault(); alert('Formulaire de démo — le traitement réel sera intégré lors de la mise en production.');" class="space-y-6">
-          <div class="grid md:grid-cols-2 gap-5">
-            <div class="form-field">
-              <label for="rdv-nom">Nom *</label>
-              <input type="text" id="rdv-nom" name="nom" required placeholder="Martin" />
-            </div>
-            <div class="form-field">
-              <label for="rdv-prenom">Prénom *</label>
-              <input type="text" id="rdv-prenom" name="prenom" required placeholder="Jean" />
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-5">
-            <div class="form-field">
-              <label for="rdv-entreprise">Entreprise</label>
-              <input type="text" id="rdv-entreprise" name="entreprise" placeholder="Société X" />
-            </div>
-            <div class="form-field">
-              <label for="rdv-fonction">Fonction</label>
-              <input type="text" id="rdv-fonction" name="fonction" placeholder="Directeur général" />
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-5">
-            <div class="form-field">
-              <label for="rdv-email">Email *</label>
-              <input type="email" id="rdv-email" name="email" required placeholder="jean.martin@exemple.fr" />
-            </div>
-            <div class="form-field">
-              <label for="rdv-telephone">Téléphone *</label>
-              <input type="tel" id="rdv-telephone" name="telephone" required placeholder="06 00 00 00 00" />
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label for="rdv-sujet">Sujet de l'échange *</label>
-            <select id="rdv-sujet" name="sujet" required>
-              <option value="">Sélectionner un sujet</option>
-              <option value="ma">M&amp;A Transaction Services (VDD, revue de VDD, missions ad hoc)</option>
-              <option value="restructuring">Restructuring (IBR, plan de retournement)</option>
-              <option value="daf">Accompagnement financier (DAF externalisé, reporting, budget, cash)</option>
-              <option value="valo">Valorisation &amp; Stratégie (DCF, business plan, recherche de cibles)</option>
-              <option value="autre">Autre / à préciser</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="text-[11px] tracking-[0.15em] text-stone-550 uppercase font-medium mb-3 block">Proposez 2 plages de disponibilité *</label>
-            <p class="text-xs text-stone-550 italic mb-5">Chaque plage doit avoir une durée de 2 à 3 heures (ex : 14h-17h)</p>
-
-            <div class="space-y-4">
-              <div class="corner-frame p-5 bg-navy-50 border border-gray-100">
-                <span class="corner-bl"></span><span class="corner-br"></span>
-                <p class="text-xs uppercase tracking-widest text-electric font-medium mb-3">Plage 1</p>
-                <div class="slot-grid">
-                  <div class="form-field">
-                    <label for="rdv-date-1">Date</label>
-                    <input type="date" id="rdv-date-1" name="date1" required />
-                  </div>
-                  <div class="form-field">
-                    <label for="rdv-heure-1">Créneau horaire</label>
-                    <input type="text" id="rdv-heure-1" name="heure1" required placeholder="ex : 14h-17h" />
-                  </div>
-                </div>
-              </div>
-              <div class="corner-frame p-5 bg-navy-50 border border-gray-100">
-                <span class="corner-bl"></span><span class="corner-br"></span>
-                <p class="text-xs uppercase tracking-widest text-electric font-medium mb-3">Plage 2</p>
-                <div class="slot-grid">
-                  <div class="form-field">
-                    <label for="rdv-date-2">Date</label>
-                    <input type="date" id="rdv-date-2" name="date2" required />
-                  </div>
-                  <div class="form-field">
-                    <label for="rdv-heure-2">Créneau horaire</label>
-                    <input type="text" id="rdv-heure-2" name="heure2" required placeholder="ex : 9h-12h" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label for="rdv-message">Contexte / informations complémentaires (optionnel)</label>
-            <textarea id="rdv-message" name="message" placeholder="Quelques lignes pour décrire votre contexte et vos objectifs…"></textarea>
-          </div>
-
-          <div class="flex items-start gap-3 text-sm text-stone-550">
-            <input type="checkbox" id="rdv-rgpd" name="rgpd" required class="mt-1 accent-electric" />
-            <label for="rdv-rgpd" class="text-xs leading-relaxed">
-              J'accepte que mes données soient utilisées pour répondre à ma demande conformément à la
-              <a href="./mentions-legales.html#confidentialite" class="underline hover:text-electric">politique de confidentialité</a>.
-            </label>
-          </div>
-
-          <div class="pt-4">
-            <button type="submit" class="btn-electric-outline-dark">Envoyer ma demande de rendez-vous</button>
-          </div>
-        </form>
       </div>
 
-      <!-- Panel message -->
-      <div id="tab-message" class="tab-panel bg-white p-8 lg:p-12 border border-gray-200 border-t-0">
-        <p class="text-sm text-stone-550 leading-relaxed mb-8 text-justify">
-          Une question rapide, une demande d'information ou un sujet à explorer ?
-          Envoyez-nous simplement un message, Grégoire vous répondra sous 24 à 48 jours ouvrés.
-        </p>
-        <form onsubmit="event.preventDefault(); alert('Formulaire de démo — le traitement réel sera intégré lors de la mise en production.');" class="space-y-6">
+      <!-- 02 — FORMULAIRE -->
+      <div id="formulaire" class="contact-card corner-frame bg-white border border-gray-200 p-6 sm:p-8 lg:p-10 mb-8 scroll-mt-24">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-8">
+          <span class="step-number">02</span>
+          <div class="flex-1">
+            <h3 class="font-serif text-2xl lg:text-3xl text-navy-700 leading-tight mb-2">Envoyer un message</h3>
+            <p class="text-sm text-stone-550 leading-relaxed">
+              Une question, une demande d'information ou un projet à présenter&nbsp;? Laissez un message,
+              Grégoire vous répond sous 24 à 48 heures ouvrées.
+            </p>
+          </div>
+        </div>
+        <form id="contact-form" class="space-y-6" novalidate>
+          <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="grid md:grid-cols-2 gap-5">
             <div class="form-field">
               <label for="msg-nom">Nom complet *</label>
-              <input type="text" id="msg-nom" name="nom" required placeholder="Jean Martin" />
+              <input type="text" id="msg-nom" name="nom" required placeholder="Jean Martin" autocomplete="name" />
             </div>
             <div class="form-field">
               <label for="msg-entreprise">Entreprise</label>
-              <input type="text" id="msg-entreprise" name="entreprise" placeholder="Société X" />
+              <input type="text" id="msg-entreprise" name="entreprise" placeholder="Société X" autocomplete="organization" />
             </div>
           </div>
           <div class="grid md:grid-cols-2 gap-5">
             <div class="form-field">
               <label for="msg-email">Email *</label>
-              <input type="email" id="msg-email" name="email" required placeholder="jean.martin@exemple.fr" />
+              <input type="email" id="msg-email" name="email" required placeholder="jean.martin@exemple.fr" autocomplete="email" />
             </div>
             <div class="form-field">
               <label for="msg-telephone">Téléphone (optionnel)</label>
-              <input type="tel" id="msg-telephone" name="telephone" placeholder="06 00 00 00 00" />
+              <input type="tel" id="msg-telephone" name="telephone" placeholder="06 00 00 00 00" autocomplete="tel" />
             </div>
           </div>
           <div class="form-field">
             <label for="msg-sujet">Sujet *</label>
-            <input type="text" id="msg-sujet" name="sujet" required placeholder="ex : Question sur votre offre M&A" />
+            <select id="msg-sujet" name="sujet" required>
+              <option value="">Sélectionner un sujet</option>
+              <option>M&amp;A Transaction Services (VDD, revue de VDD, missions ad hoc)</option>
+              <option>Restructuring (IBR, plan de retournement)</option>
+              <option>Accompagnement financier (DAF externalisé, reporting, budget, cash)</option>
+              <option>Valorisation &amp; Stratégie (DCF, business plan, recherche de cibles)</option>
+              <option>Autre / à préciser</option>
+            </select>
           </div>
           <div class="form-field">
             <label for="msg-message">Votre message *</label>
-            <textarea id="msg-message" name="message" required placeholder="Votre question ou demande…" style="min-height: 180px;"></textarea>
+            <textarea id="msg-message" name="message" required placeholder="Quelques lignes sur votre contexte et vos objectifs…" style="min-height: 160px;"></textarea>
           </div>
           <div class="flex items-start gap-3 text-sm text-stone-550">
             <input type="checkbox" id="msg-rgpd" name="rgpd" required class="mt-1 accent-electric" />
@@ -505,19 +457,82 @@
               <a href="./mentions-legales.html#confidentialite" class="underline hover:text-electric">politique de confidentialité</a>.
             </label>
           </div>
-          <div class="pt-4">
-            <button type="submit" class="btn-electric-outline-dark">Envoyer mon message</button>
+          <div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-4">
+            <button type="submit" id="contact-submit" class="btn-electric-outline-dark">Envoyer mon message</button>
+            <p id="contact-status" class="text-sm leading-relaxed" role="status" aria-live="polite"></p>
           </div>
         </form>
+      </div>
+
+      <!-- 03 — EMAIL DIRECT -->
+      <div id="email-direct" class="corner-frame bg-navy-700 text-white p-6 sm:p-8 lg:p-10 scroll-mt-24" style="--corner-color: var(--electric-soft);">
+        <span class="corner-bl"></span><span class="corner-br"></span>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+          <span class="step-number step-number-light">03</span>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-serif text-2xl lg:text-3xl text-white leading-tight mb-2">Écrire directement</h3>
+            <p class="text-sm text-white/75 leading-relaxed mb-4">Vous préférez votre messagerie&nbsp;? Écrivez à Grégoire à l'adresse suivante&nbsp;:</p>
+            <div class="flex flex-col md:flex-row md:items-center gap-4">
+              <a href="mailto:g.leclerc@financieremadeleine.com" class="font-serif text-xl sm:text-2xl lg:text-3xl text-electric-soft hover:text-white transition-colors break-all">g.leclerc@financieremadeleine.com</a>
+              <button type="button" id="copy-email" class="btn-electric-outline shrink-0 self-start md:self-auto" data-email="g.leclerc@financieremadeleine.com">Copier l'adresse</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Calendly (agenda en ligne) -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script>
-    function switchTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('is-active', b.dataset.tab === tab));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('is-active', p.id === 'tab-' + tab));
-    }
+    // Formulaire de contact : envoi par FormSubmit (aucun serveur nécessaire) vers g.leclerc@financieremadeleine.com
+    (function () {
+      var form = document.getElementById('contact-form');
+      var btn = document.getElementById('contact-submit');
+      var status = document.getElementById('contact-status');
+      function say(msg, ok) {
+        status.textContent = msg;
+        status.className = 'text-sm leading-relaxed ' + (ok ? 'text-navy-700' : 'text-red-700');
+      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var data = Object.fromEntries(new FormData(form).entries());
+        if (data._honey) return; // anti-spam
+        delete data.rgpd;
+        data._subject = 'Site web — ' + (data.sujet || 'Nouveau message') + ' — ' + (data.nom || '');
+        data._replyto = data.email;
+        data._template = 'table';
+        btn.disabled = true; btn.style.opacity = '0.6';
+        say('Envoi en cours…', true);
+        fetch('https://formsubmit.co/ajax/g.leclerc@financieremadeleine.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (res.ok && String(res.j.success) === 'true') {
+              form.reset();
+              say('Merci, votre message a bien été envoyé. Grégoire revient vers vous rapidement.', true);
+            } else { throw new Error(res.j.message || 'Erreur'); }
+          })
+          .catch(function () {
+            say("L'envoi n'a pas abouti. Vous pouvez écrire directement à g.leclerc@financieremadeleine.com.", false);
+          })
+          .finally(function () { btn.disabled = false; btn.style.opacity = ''; });
+      });
+
+      // Bouton « Copier l'adresse »
+      var copyBtn = document.getElementById('copy-email');
+      copyBtn.addEventListener('click', function () {
+        var email = copyBtn.getAttribute('data-email');
+        var done = function () { copyBtn.textContent = 'Adresse copiée ✓'; setTimeout(function () { copyBtn.textContent = "Copier l'adresse"; }, 2200); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(done, function () { window.location.href = 'mailto:' + email; });
+        } else { window.location.href = 'mailto:' + email; }
+      });
+    })();
   </script>
 
   <!-- TÉLÉCHARGEMENT PLAQUETTE -->
@@ -565,14 +580,14 @@
             <svg class="w-5 h-5 text-navy-700 transition-transform group-open:rotate-45 shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
           </summary>
           <p class="mt-4 text-sm text-stone-550 leading-relaxed text-justify">
-            Oui. Le premier rendez-vous de 20 minutes est entièrement gratuit et sans engagement.
+            Oui. Le premier rendez-vous est entièrement gratuit et sans engagement.
             Son objectif est de <strong class="text-navy-700 font-medium">présenter le cabinet, l'approche et l'accompagnement apporté</strong>.
             Vous serez systématiquement conseillé avec objectivité&nbsp;: si votre besoin relève
             d'un autre professionnel, vous serez orienté en toute transparence.
           </p>
           <p class="mt-3 text-sm text-stone-550 leading-relaxed text-justify">
             Si la proposition de services de Financière Madeleine est pertinente, un
-            <strong class="text-navy-700 font-medium">second rendez-vous d'une heure, préparé en amont</strong>,
+            <strong class="text-navy-700 font-medium">second rendez-vous, préparé en amont</strong>,
             sera programmé pour échanger précisément sur votre besoin et construire ensemble la mission adaptée.
           </p>
         </details>
@@ -583,8 +598,8 @@
             <svg class="w-5 h-5 text-navy-700 transition-transform group-open:rotate-45 shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
           </summary>
           <p class="mt-4 text-sm text-stone-550 leading-relaxed text-justify">
-            Pour une demande de rendez-vous : sous 1 jour ouvré pour confirmer un créneau
-            parmi les 2 plages que vous proposez. Pour un message simple : sous 1 à 2 jours ouvrés.
+            Un rendez-vous réservé via l'agenda en ligne est confirmé immédiatement par email.
+            Pour un message envoyé via le formulaire ou par email : réponse sous 24 à 48 heures ouvrées.
           </p>
         </details>
 
